@@ -37,7 +37,7 @@
 | postcode         | string       | null: false, foreign_key: true | <!--郵便番号-->
 | prefecture_id    | integer      | null: false, foreign_key: true | <!--都道府県-->
 | city             | text         | null: false, foreign_key: true | <!--市区町村-->
-| block            | integer      | null: false, foreign_key: true | <!--番地-->
+| block            | string       | null: false, foreign_key: true | <!--番地-->
 | building         | text         |                                | <!--建物名-->
 | phone_number     | string       | null: false, foreign_key: true | <!--電話番号-->
 | order_id         | integer      | null: false, foreign_key: true |
