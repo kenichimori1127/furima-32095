@@ -36,9 +36,9 @@
 | ---------------- | ------------ | ------------------------------ |
 | postcode         | string       | null: false, foreign_key: true | <!--郵便番号-->
 | prefecture_id    | integer      | null: false, foreign_key: true | <!--都道府県-->
-| city             | text         | null: false, foreign_key: true | <!--市区町村-->
+| city             | string       | null: false, foreign_key: true | <!--市区町村-->
 | block            | string       | null: false, foreign_key: true | <!--番地-->
-| building         | text         |                                | <!--建物名-->
+| building         | string       |                                | <!--建物名-->
 | phone_number     | string       | null: false, foreign_key: true | <!--電話番号-->
 | order_id         | integer      | null: false, foreign_key: true |
 
@@ -50,7 +50,6 @@
 | ---------------- | ------------ | ------------------------------ |
 | user_id          | integer      | null: false, foreign_key: true | <!--購入者名-->
 | item_id          | integer      | null: false, foreign_key: true | <!--購入商品-->
-| created_at       |              |                                | <!--購入記録-->
 
 ### Association
 - belongs_to :user <!--1対1(参照元テーブル → 参照先テーブル)-->
