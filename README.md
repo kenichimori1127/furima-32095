@@ -12,7 +12,7 @@
 
 ### Association
 - has_many :items <!--1対多-->
-- has_one  :order <!--1対1-->
+- has_many  :orders <!--1対多-->
 
 ## itemsテーブル (商品情報)
 | Column           | Type         | Options                         |
@@ -34,25 +34,22 @@
 ## shippingsテーブル (住所)
 | Column           | Type         | Options                        |
 | ---------------- | ------------ | ------------------------------ |
-| postcode         | text         | null: false, foreign_key: true | <!--郵便番号-->
+| postcode         | string       | null: false, foreign_key: true | <!--郵便番号-->
 | prefecture_id    | integer      | null: false, foreign_key: true | <!--都道府県-->
 | city             | text         | null: false, foreign_key: true | <!--市区町村-->
 | block            | integer      | null: false, foreign_key: true | <!--番地-->
 | building         | text         |                                | <!--建物名-->
-| phone_number     | integer      | null: false, foreign_key: true | <!--電話番号-->
-| order_id         |              | null: false, foreign_key: true |
+| phone_number     | string       | null: false, foreign_key: true | <!--電話番号-->
+| order_id         | integer      | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :user <!--1対1(参照元テーブル → 参照先テーブル)-->
-- belongs_to :item <!--1対1(参照元テーブル → 参照先テーブル)-->
 - belongs_to :order <!--1対1(参照元テーブル → 参照先テーブル)-->
 
 ## ordersテーブル (購入情報)
 | Column           | Type         | Options                        |
 | ---------------- | ------------ | ------------------------------ |
-| user_id          |              | null: false, foreign_key: true | <!--購入者名-->
-| item_id          |              | null: false, foreign_key: true | <!--購入商品-->
-| shipping_id      |              | null: false, foreign_key: true | <!--配送先-->
+| user_id          | integer      | null: false, foreign_key: true | <!--購入者名-->
+| item_id          | integer      | null: false, foreign_key: true | <!--購入商品-->
 | created_at       |              |                                | <!--購入記録-->
 
 ### Association
