@@ -12,7 +12,7 @@
 
 ### Association
 - has_many :items <!--1対多-->
-- has_many  :orders <!--1対多-->
+- has_many :orders <!--1対多-->
 
 ## itemsテーブル (商品情報)
 | Column           | Type         | Options                         |
