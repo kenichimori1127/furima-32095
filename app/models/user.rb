@@ -7,17 +7,14 @@ class User < ApplicationRecord
   has_many :items,  dependent: :destroy
   has_many :orders, dependent: :destroy
 
-  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email,                 presence: true
-  # ,format: {with: VALID_EMAIL_REGEX, allow_blank: true}
-  # VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
-  validates :encrypted_password,    presence: true
-  # , format: { with: VALID_PASSWORD_REGEX }
-  validates :nickname,              presence: true
-  validates :first_name,            presence: true
-  validates :family_name,           presence: true
-  validates :first_name_kana,       presence: true
-  validates :family_name_kana,      presence: true
-  validates :birth_date,            presence: true
-
+  with_options presence: true do
+  validates :email,              presence: true
+  validates :password, presence: true, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: "is invalid. Input full-width characters."}
+  validates :nickname,           presence: true
+  validates :first_name,         presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Input full-width characters."}
+  validates :family_name,        presence: true,format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Input full-width characters."}
+  validates :first_name_kana,    presence: true, format: { with: /\A[ァ-ヶー－]+\z/, message: "is invalid. Input full-width katakana characters."}
+  validates :family_name_kana,   presence: true,format: { with: /\A[ァ-ヶー－]+\z/, message: "is invalid. Input full-width katakana characters."}
+  validates :birth_date,         presence: true
+  end
 end
