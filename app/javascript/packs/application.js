@@ -6,6 +6,8 @@
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
+require("../item_price");
+
 // require("turbolinks").start()画面遷移は高速化するが次ページのHTML要素だけを読み取って表示する為、JavaScriptにて設定したイベントが発火しないケースがあるので非表示
 
 // Uncomment to copy all static images under ../images to the output folder and reference
