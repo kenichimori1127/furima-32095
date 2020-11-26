@@ -27,7 +27,7 @@ RSpec.describe Item, type: :model do
         it "priceがない場合は登録できないこと" do
           @item.price = ""
           @item.valid?
-          expect(@item.errors.full_messages).to include "Price can't be blank"
+          expect(@item.errors.full_messages).to include "Price can't be blank", "Price Out of setting range", "Price can't be blank", "Price Half-width number"
         end
         it "価格の範囲が¥299以下の場合は登録できないこと" do
           @item.price = 299
@@ -49,25 +49,50 @@ RSpec.describe Item, type: :model do
           @item.valid?
           expect(@item.errors.full_messages).to include "Category can't be blank"
         end
+        it "category_idが1の場合は登録できないこと" do
+          @item.category_id = "1"
+          @item.valid?
+          expect(@item.errors.full_messages).to include "Category select"
+        end
         it "status_idがない場合は登録できないこと" do
           @item.status_id = ""
           @item.valid?
           expect(@item.errors.full_messages).to include "Status can't be blank"
+        end
+        it "status_idが1の場合は登録できないこと" do
+          @item.status_id = "1"
+          @item.valid?
+          expect(@item.errors.full_messages).to include "Status select"
         end
         it "burden_idがない場合は登録できないこと" do
           @item.burden_id = ""
           @item.valid?
           expect(@item.errors.full_messages).to include "Burden can't be blank"
         end
+        it "burden_idが1の場合は登録できないこと" do
+          @item.burden_id = "1"
+          @item.valid?
+          expect(@item.errors.full_messages).to include "Burden select"
+        end
         it "area_idがない場合は登録できないこと" do
           @item.area_id = ""
           @item.valid?
           expect(@item.errors.full_messages).to include "Area can't be blank"
         end
+        it "area_idが1の場合は登録できないこと" do
+          @item.area_id = "1"
+          @item.valid?
+          expect(@item.errors.full_messages).to include "Area select"
+        end
         it "guideline_idがない場合は登録できないこと" do
           @item.guideline_id = ""
           @item.valid?
           expect(@item.errors.full_messages).to include "Guideline can't be blank"
+        end
+        it "guideline_idが1の場合は登録できないこと" do
+          @item.guideline_id= "1"
+          @item.valid?
+          expect(@item.errors.full_messages).to include "Guideline select"
         end
         it "imageがない場合は登録できないこと" do
           @item.image = nil
