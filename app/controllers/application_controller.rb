@@ -5,12 +5,12 @@ end
 
   private
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :first_name, :family_name, :first_name_kana, :family_name_kana, :birth_date])
-  end
+def configure_permitted_parameters
+  devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :first_name, :family_name, :first_name_kana, :family_name_kana, :birth_date])
+end
 
-  # def basic_auth
-  #   authenticate_or_request_with_http_basic do |username, password|
-  #     username == 'admin' && password == '2222'
-  #   end
-  # end
+# def basic_auth
+#   authenticate_or_request_with_http_basic do |username, password|
+#     username == 'admin' && password == '2222'
+#   end
+# end
