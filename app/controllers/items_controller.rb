@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create]
-  before_action :set_prototype, except: [:index, :new, :create]
+  before_action :set_item, except: [:index, :new, :create]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
   def index
     @items = Item.all.order("created_at DESC")
@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:product_name, :explanation, :price, :category_id, :status_id, :burden_id, :area_id, :guideline_id, :image).merge(user_id: current_user.id)
   end
 
-    def set_prototype
+    def set_item
     @item = Item.find(params[:id])
   end
 
