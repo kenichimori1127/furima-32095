@@ -35,9 +35,9 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    if @item.user_id == current_user.id
-      redirect_to root_path
-    end
+      if @item.user_id == current_user.id #(出品者であれば削除できる)
+      redirect_to root_path #(トップページへ遷移させる)
+      end
   end
 
   private
