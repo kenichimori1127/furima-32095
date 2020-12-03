@@ -35,7 +35,7 @@
 | Column           | Type         | Options                        |
 | ---------------- | ------------ | ------------------------------ |
 | postcode         | string       | null: false, foreign_key: true | <!--郵便番号-->
-| prefecture_id    | integer      | null: false, foreign_key: true | <!--都道府県-->
+| area_id          | integer      | null: false, foreign_key: true | <!--都道府県-->
 | city             | string       | null: false, foreign_key: true | <!--市区町村-->
 | block            | string       | null: false, foreign_key: true | <!--番地-->
 | building         | string       |                                | <!--建物名-->
